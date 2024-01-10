@@ -1,16 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.scss'
+/** @format */
+
+import { useState } from "react";
+import "./App.scss";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Product from "./page/product";
+import Cart from "./page/cart";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <h2 className='text-2xl text-center my-10'>Hello World</h2>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
